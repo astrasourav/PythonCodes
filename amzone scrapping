@@ -1,0 +1,28 @@
+from bs4 import BeautifulSoup as soup
+import requests as req
+import pandas as pd
+
+sauce = req.get("https://www.flipkart.com/search?q=samsubg&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off")
+
+url = soup(sauce.content, "lxml")
+
+
+item = url.find_all(class_="col col-7-12")
+
+price_list = url.find_all(class_='col col-5-12 _2o7WAb')
+
+
+name = [i.find(class_='_3wU53n').get_text() for i in item]
+details = [i.find(class_='vFw0gD').get_text() for i in item]
+price = [i.find(class_='_1vC4OE _2rQ-NK').get_text() for i in price_list]
+
+
+phone = pd.DataFrame(
+     {
+         'Name': name,
+         'Details': details,
+         'price': price
+     })
+
+print(phone)
+phone.to_csv('phone details')
