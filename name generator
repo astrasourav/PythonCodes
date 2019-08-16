@@ -1,0 +1,27 @@
+
+import random
+
+#Creating gap
+print("")
+
+#Intro of program
+print('This program will create names for you randomly :-)')
+
+#creating lists which will contain names and surnames
+name = ['Sourav', 'Abishek', 'Mohit']
+sname = ['Kumar', 'Bisht', 'Sharma']
+
+#Creating gap
+print('')
+
+#Creating an empty variable
+uname = ""
+
+usname = ""
+
+#Now writing the actual code
+uname = random.choice(name)
+usname = random.choice(sname)
+
+#using formatted string concept
+print('Your name is :- %s %s' %(uname, usname))
