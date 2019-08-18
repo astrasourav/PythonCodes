@@ -1,0 +1,32 @@
+#This is a program of ceaser cipher
+
+#Creating a gap
+print('')
+
+
+#intro
+print('This program will convert your messages into cipher texts :-)')
+print('')
+
+
+#Creating variables
+letters = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'
+cipher = ''
+plain_text = input("Enter your message :- ")
+print('')
+key = int(input("Enter your key :- "))
+
+
+#Logic
+#first loop is created to check spaces in the plain_text/message if found then it adds the spaces into the cipher variable
+for i in plain_text.lower():
+    if i == ' ':
+        cipher += ' '
+    else:
+        #second loop goes round the list using its length
+        for b in range(len(letters)):
+            if letters[b] == i:
+                cipher += letters[b + key]
+                break
+
+print(cipher)
